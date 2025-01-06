@@ -1,6 +1,5 @@
 "use client";
 
-import { Discovery } from "aws-sdk";
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { DownloadCloud } from "lucide-react";
