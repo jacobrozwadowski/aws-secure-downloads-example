@@ -2,6 +2,8 @@
 
 import { Discovery } from "aws-sdk";
 import React, { useState } from "react";
+import { Button } from "./ui/button";
+import { DownloadCloud } from "lucide-react";
 
 interface DownloadButtonProps {
   fileName: string;
@@ -36,9 +38,10 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ fileName }) => {
 
   return (
     <div>
-      <button onClick={handleDownload} disabled={loading}>
-        {loading ? "Generating download link..." : "Download File"}
-      </button>
+      <Button variant="outline" onClick={handleDownload} disabled={loading}>
+        <DownloadCloud />
+        {loading ? "Generating download link..." : `Download ${fileName}`}
+      </Button>
       {error && <p className="text-red-500">{error}</p>}
     </div>
   );
