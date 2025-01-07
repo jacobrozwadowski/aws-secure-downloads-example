@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { GeistSans } from "geist/font/sans";
+import { LoaderCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "AWS-SDK Signed URL creator",

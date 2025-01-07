@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "./ui/button";
-import { DownloadCloud } from "lucide-react";
+import { DownloadCloud, LoaderCircle } from "lucide-react";
 
 interface DownloadButtonProps {
   fileName: string;
@@ -37,9 +37,18 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ fileName }) => {
 
   return (
     <div>
-      <Button variant="outline" onClick={handleDownload} disabled={loading}>
+      <Button
+        variant="outline"
+        className="min-w-[150px]"
+        onClick={handleDownload}
+        disabled={loading}
+      >
         <DownloadCloud />
-        {loading ? "Generating download link..." : `Download ${fileName}`}
+        {loading ? (
+          <LoaderCircle className="animate-spin" />
+        ) : (
+          `Download ${fileName}`
+        )}
       </Button>
       {error && <p className="text-red-500">{error}</p>}
     </div>
